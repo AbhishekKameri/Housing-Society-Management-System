@@ -1,0 +1,93 @@
+/* ============================================================
+   Monthly Maintenance — page-specific additions
+   (everything else — cards, stats, table, tabs, breakdown —
+   already comes from the shared site.css)
+   ============================================================ */
+.popup-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+    
+}
+
+.popup-box.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.popup-box.success {
+    background-color: #28a745; /* green - add */
+}
+
+.popup-box.update {
+    background-color: #007bff; /* blue - update */
+}
+
+.popup-box.delete {
+    background-color: #dc3545; /* red - delete */
+}
+
+.popup-box .popup-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: block;
+}
+.page-actions-row{
+  display:flex;justify-content:end;align-items:center;
+  flex-wrap:wrap;gap:12px;margin-bottom:20px;
+}
+.breadcrumb{
+  font-size:12px;color:var(--text-faint);
+  display:flex;gap:6px;align-items:center;
+}
+.breadcrumb .current{color:var(--text-dim);}
+
+.action-buttons-row{display:flex;gap:10px;flex-wrap:wrap;}
+
+@media (max-width:640px){
+  .page-actions-row{flex-direction:column;align-items:stretch;}
+  .action-buttons-row{width:100%;}
+  .action-buttons-row .btn-primary{flex:1;justify-content:center;}
+}
+
+/* Pagination "…" separator */
+.page-ellipsis{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;color:var(--text-faint);user-select:none;
+}
+
+/* ---- Selected bill row (highlighted after a row click) ---- */
+.bill-row.selected{ background:var(--accent-bg); }
+.bill-row.selected td:first-child{ box-shadow:inset 3px 0 0 var(--accent); }
+
+/* ---- "Viewing bill ..." bar at the top of the Create / View panel ---- */
+.selected-bill-bar{
+  display:none;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:var(--accent-bg);border:1px solid rgba(145,60,255,.3);
+  border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:14px;
+}
+.selected-bill-info{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--text-dim);
+}
+.selected-bill-info b{ color:var(--text); }
+
+.date-warning {
+    display: none;
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: 500;
+}

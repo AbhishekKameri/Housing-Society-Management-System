@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+/* =========================================================
+   COMMON PAGE HEADER
+   Used by View Society, View Chairman, Update Society, etc.
+   ========================================================= */
+
+.topbar {
+    width: 100%;
+    height: 72px;
+    min-height: 72px;
+    margin-left:1rem;
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #172633;
+}
+
+.top-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* BACK BUTTON */
+
+.back-button {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(145, 60, 255, 0.08);
+
+    border: 1px solid rgba(145, 60, 255, 0.35);
+
+    border-radius: 10px;
+
+    color: #b766ff;
+
+    text-decoration: none;
+
+    font-size: 19px;
+
+    margin: 0;
+    padding: 0;
+
+    transition: all 0.25s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(
+        135deg,
+        #7134ef,
+        #5720ce
+    );
+
+    border-color: #8f45ff;
+
+    color: #ffffff;
+
+    transform: translateX(-2px);
+}
+
+/* PAGE TITLE */
+
+.page-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    line-height: 27px;
+
+    font-weight: 600;
+}
+
+.page-description {
+    margin-top: 4px;
+
+    color: #a0a9b4;
+
+    font-size: 13px;
+
+    line-height: 16px;
+}
+
+/* TOP RIGHT */
+
+.top-right {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    flex-shrink: 0;
+}
+
+/* DATE */
+
+.date-box {
+    width: 148px;
+    min-width: 148px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #1d2d3c;
+
+    border-radius: 6px;
+
+    background: #09141f;
+
+    color: #e0e4ea;
+
+    font-size: 12px;
+
+    text-align: center;
+
+    line-height: 18px;
+}
+
+/* NOTIFICATION */
+
+.notification {
+    position: relative;
+
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 17px;
+
+    border-left: 1px solid #1d2d3c;
+
+    color: #d7dce3;
+
+    font-size: 23px;
+}
+
+.notification-dot {
+    position: absolute;
+
+    top: -2px;
+    right: 12px;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ff4040;
+}
+
+/* ADMIN */
+
+.admin {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #7438f4,
+        #4320b9
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.admin-name {
+    font-size: 13px;
+
+    color: #ffffff;
+}
+
+.admin-role {
+    font-size: 11px;
+
+    color: #909aa7;
+
+    margin-top: 3px;
+}
+
+.admin-chevron {
+    margin-left: 8px;
+
+    font-size: 15px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .top-right .date-box,
+    .notification {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: auto;
+        min-height: 72px;
+    }
+
+    .page-title {
+        font-size: 21px;
+    }
+
+    .page-description {
+        font-size: 12px;
+    }
+
+    .admin-name,
+    .admin-role,
+    .admin-chevron {
+        display: none;
+    }
+}

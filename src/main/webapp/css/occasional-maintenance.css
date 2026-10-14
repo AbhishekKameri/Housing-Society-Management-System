@@ -1,0 +1,273 @@
+/* ============================================================
+   Occasional Maintenance — page-specific styles
+   (builds on the shared site.css: cards, tables, tabs, badges,
+   form-grid, net-amount-bar, breakdown-table already come from there)
+   ============================================================ */
+
+/* ---- "Flats Involved" custom select + its dropdown menu ---- */
+.popup-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.popup-box.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.popup-box.success {
+    background-color: #28a745; /* green - add */
+}
+
+.popup-box.update {
+    background-color: #007bff; /* blue - update */
+}
+
+.popup-box.delete {
+    background-color: #dc3545; /* red - delete */
+}
+
+.popup-box .popup-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: block;
+}
+.flats-involved-field{ position:relative; }
+.flats-involved-btn{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  width:100%;
+  background:var(--panel-2);border:1px solid var(--border);color:var(--text);
+  border-radius:var(--radius-sm);padding:9px 11px;font-size:13.5px;cursor:pointer;
+}
+.flats-involved-btn .fi-left{display:flex;align-items:center;gap:8px;min-width:0;}
+.flats-involved-btn .fi-left i{color:var(--text-faint);}
+.flats-involved-menu{
+  display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;
+  background:var(--panel-3);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.flats-involved-menu.open{display:block;}
+.flats-involved-menu button{
+  display:flex;width:100%;align-items:flex-start;gap:10px;
+  background:none;border:none;color:var(--text-dim);
+  padding:9px 10px;border-radius:6px;font-size:12.5px;cursor:pointer;text-align:left;
+}
+.flats-involved-menu button:hover{background:var(--panel-2);color:var(--text);}
+.flats-involved-menu button i{margin-top:2px;color:var(--accent-2);}
+.flats-involved-menu .fi-option-title{font-weight:600;font-size:13px;color:var(--text);}
+.flats-involved-menu .fi-option-sub{font-size:11px;color:var(--text-faint);margin-top:1px;display:block;}
+.flats-involved-menu .divider{height:1px;background:var(--border);margin:6px 4px;}
+.flats-involved-menu .group-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-faint);padding:6px 10px 2px;}
+
+/* ---- Selected-flats chip (shown under the Flats Involved field) ---- */
+.flat-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent-bg);border:1px solid rgba(145,60,255,.35);
+  border-radius:var(--radius-sm);padding:8px 10px;margin-top:8px;
+  font-size:12.5px;color:var(--text);
+}
+.action-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
+}
+.input input{
+	width: 30%;
+  box-sizing: border-box;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 11px 13px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: .2s;
+  margin-top: .5rem;
+}
+.input {
+  display: flex;
+  flex-direction:column;
+}
+.input label{
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.action-dropdown.show {
+    display: block;
+}
+.btn-container{
+	display:flex;
+	 
+	
+	 
+}
+#deletbtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#deletbtn:hover {
+    background-color: #c82333;
+}
+
+#deletbtn:active {
+    transform: scale(0.97);
+}
+
+#deletbtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+}
+
+.btn-container button:hover{background:var(--panel-3);color:var(--text);}
+ .btn-container button.danger{color:var(--red);}
+  .btn-container .danger:hover{background:var(--red-bg);}
+.flat-chip .chip-icon{
+  width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:11px;flex:0 0 22px;
+}
+.flat-chip .chip-text{flex:1;min-width:0;}
+.flat-chip .chip-sub{display:block;font-size:10.5px;color:var(--text-faint);margin-top:1px;}
+.flat-chip .chip-remove{
+  background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:14px;
+  padding:2px;line-height:1;
+}
+.flat-chip .chip-remove:hover{color:var(--red);}
+
+/* ============================================================
+   MODAL — "Select Specific Flat(s)"
+   ============================================================ */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.6);
+  align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.open{display:flex;}
+.modal-box{
+  width:100%;max-width:460px;
+  background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;max-height:90vh;overflow-y:auto;
+}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.modal-header h3{font-size:16px;margin:0;}
+.modal-close{
+  width:28px;height:28px;border-radius:8px;border:1px solid var(--border);
+  background:var(--panel-2);color:var(--text-dim);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+}
+.modal-close:hover{color:var(--text);}
+
+/* Single Flat / Flat Range radio pills */
+.mode-toggle{display:flex;gap:20px;margin-bottom:16px;}
+.mode-option{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13.5px;color:var(--text);}
+.mode-option input[type="radio"]{
+  appearance:none;width:18px;height:18px;border-radius:50%;
+  border:2px solid var(--border);position:relative;cursor:pointer;flex:0 0 18px;
+}
+.mode-option input[type="radio"]:checked{border-color:var(--accent);}
+.mode-option input[type="radio"]:checked::after{
+  content:"";position:absolute;inset:3px;border-radius:50%;background:var(--accent);
+}
+
+.mode-panel{display:none;}
+.mode-panel.active{display:block;}
+
+/* Searchable single-flat picker */
+.flat-search-box{
+  display:flex;align-items:center;gap:8px;
+  background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+  padding:9px 12px;
+}
+.flat-search-box input{background:none;border:none;outline:none;color:var(--text);font-size:13px;width:100%;}
+.flat-search-box .ic{color:var(--text-faint);}
+
+.flat-list{
+  max-height:220px;overflow-y:auto;
+  border:1px solid var(--border);border-top:none;
+  border-radius:0 0 var(--radius-sm) var(--radius-sm);
+}
+.flat-list-item{
+  padding:10px 14px;font-size:13px;color:var(--text-dim);cursor:pointer;
+  border-bottom:1px solid var(--border);
+}
+.flat-list-item:last-child{border-bottom:none;}
+.flat-list-item:hover{background:var(--panel-2);}
+.flat-list-item.selected{background:var(--accent);color:#fff;font-weight:600;}
+.flat-list-item.hidden{display:none;}
+
+/* Flat range pickers */
+.range-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+
+.range-preview{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--accent-bg);border:1px solid rgba(145,60,255,.3);
+  border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:4px;
+}
+.range-preview i{color:var(--accent-2);margin-top:2px;}
+.range-preview-title{font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.range-preview-text{font-size:12px;color:var(--text-dim);}
+.range-preview-text b{color:var(--text);}
+
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px;}
+
+/* ============================================================
+   Charges Breakdown — editable rows
+   ============================================================ */
+.charges-table td{vertical-align:middle;}
+.charges-table .particular-input,
+.charges-table .amount-input{
+  background:none;border:1px solid transparent;color:var(--text);
+  font-size:13px;padding:5px 6px;border-radius:6px;width:100%;outline:none;
+}
+.charges-table .particular-input:hover, .charges-table .particular-input:focus,
+.charges-table .amount-input:hover, .charges-table .amount-input:focus{
+  border-color:var(--border);background:var(--panel-2);
+}
+.charges-table .amount-input{text-align:right;}
+.charges-table td.action-col{width:36px;text-align:center;}
+.row-delete-btn{
+  background:none;border:none;color:var(--red);cursor:pointer;
+  width:26px;height:26px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;
+}
+.row-delete-btn:hover{background:var(--red-bg);}
+
+.add-charge-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--panel-2);border:1px dashed var(--border);color:var(--accent-2);
+  border-radius:var(--radius-sm);padding:10px;font-size:12.5px;font-weight:600;cursor:pointer;
+  margin-top:8px;
+}
+.add-charge-btn:hover{border-color:var(--accent);color:var(--text);}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width:640px){
+  .range-fields{grid-template-columns:1fr;}
+  .modal-box{max-width:100%;}
+}

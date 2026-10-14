@@ -1,0 +1,86 @@
+/* ===== Owner Details (view-only) page ===== */
+
+/* Header actions row can hold a link styled as the primary button */
+.header-actions a.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+}
+
+/* Extra stat chips inside the profile header, e.g. Age / Blood Group / Gender */
+.owner-summary{ flex-wrap:wrap; }
+.owner-summary-stats{
+  display:flex;
+  gap:22px;
+  margin-left:auto;
+  padding-left:20px;
+}
+.mini-stat{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  align-items:flex-start;
+}
+.mini-stat-label{
+  font-size:11px;
+  color:var(--text-faint);
+}
+.mini-stat-value{
+  font-size:15px;
+  font-weight:700;
+}
+
+/* Detail section cards */
+.view-section{ margin-top:18px; }
+.view-section .card-title{
+  border-bottom:1px solid var(--border);
+  padding-bottom:12px;
+  margin-bottom:18px;
+}
+
+.info-grid{
+  display:grid;
+  gap:20px;
+}
+.info-grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+
+.info-item{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width:0;
+}
+.info-label{
+  font-size:11.5px;
+  color:var(--text-faint);
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
+.info-value{
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  word-break:break-word;
+}
+
+.view-section + .form-actions{ margin-top:22px; }
+
+/* ============ Responsive ============ */
+@media (max-width:900px){
+  .info-grid.cols-3{ grid-template-columns:repeat(2,1fr); }
+  .owner-summary-stats{
+    margin-left:0;
+    padding-left:0;
+    width:100%;
+    justify-content:space-between;
+    padding-top:14px;
+    margin-top:6px;
+    border-top:1px solid var(--border);
+  }
+}
+
+@media (max-width:560px){
+  .info-grid.cols-3{ grid-template-columns:1fr; }
+  .owner-summary-stats{ gap:16px; }
+}

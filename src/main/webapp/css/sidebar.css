@@ -1,0 +1,1022 @@
+@charset "UTF-8";
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+:root{
+  /* Brand palette — matches the sidebar / admin header */
+  --accent:#6d3eea;
+  --accent-2:#913cff;
+  --accent-bg: rgba(145, 60, 255, .12);
+
+  --panel:#0b1622;
+  --panel-2:#101e2c;
+  --panel-3:#172633;
+  --border:#1b2b3a;
+
+  --text:#ffffff;
+  --text-dim:#94a3b8;
+  --text-faint:#64748b;
+
+  --green:#22c55e;   --green-bg:rgba(34,197,94,.14);
+  --orange:#f59e0b;  --orange-bg:rgba(245,158,11,.14);
+  --red:#ef4444;     --red-bg:rgba(239,68,68,.14);
+  --teal:#14b8a6;
+  --pink:#ec4899;
+
+  --radius:14px;
+  --radius-sm:8px;
+
+  --sidebar-w:244px;
+  --sidebar-w-collapsed:70px;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 244px;
+	height: 100vh;
+	background: #07111b;
+	border-right: 1px solid #192736;
+	padding: 24px 12px;
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	transition: width 0.3s ease;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+.logo-area {
+	width: 100%;
+	height: 86px;
+	padding: 0 12px;
+	border-bottom: 1px solid #182735;
+	flex-shrink: 0;
+}
+
+.logo-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 19px;
+	font-weight: 600;
+	color: #ffffff;
+	white-space: nowrap;
+}
+
+.logo-icon {
+	width: 27px;
+	min-width: 27px;
+	color: #913cff;
+	font-size: 27px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.logo-icon:hover {
+	color: #b766ff;
+}
+
+.logo-subtitle {
+	margin-top: 7px;
+	font-size: 12px;
+	color: #929ca8;
+	white-space: nowrap;
+}
+
+/* =========================================================
+   MENU
+========================================================= */
+.menu {
+	width: 100%;
+	margin-top: 22px;
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.menu::-webkit-scrollbar {
+	display: none;
+}
+
+/* =========================================================
+   NORMAL MENU ITEM
+========================================================= */
+.menu-item {
+	width: 100%;
+	min-height: 46px;
+	padding: 0 14px;
+	margin-bottom: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #94a3b8;
+	text-decoration: none;
+	border-radius: 8px;
+	font-size: 14px;
+	white-space: nowrap;
+	transition: background 0.2s ease, color 0.2s ease, padding 0.3s ease;
+}
+
+.menu-item:hover {
+	background: #101e2c;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   MENU LEFT
+========================================================= */
+.menu-left {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+}
+
+.menu-left span {
+	white-space: nowrap;
+}
+
+/* =========================================================
+   MENU ICON
+========================================================= */
+.menu-icon {
+	width: 20px;
+	min-width: 20px;
+	text-align: center;
+	color: inherit;
+	font-size: 17px;
+	flex-shrink: 0;
+}
+
+/* =========================================================
+   NORMAL ACTIVE MENU
+========================================================= */
+.menu-item.active {
+	background: #6d3eea;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   SOCIETY MENU
+========================================================= */
+.society-menu {
+	width: 100%;
+	margin: 0 0 5px 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* =========================================================
+   SOCIETY MAIN LINK
+========================================================= */
+.society-menu .menu-link {
+	width: 100%;
+	min-height: 46px;
+	padding: 0 14px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	color: #94a3b8;
+	background: transparent;
+	border-radius: 8px;
+	text-decoration: none;
+	font-size: 14px;
+	white-space: nowrap;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+
+.society-menu .menu-link:hover {
+	background: #101e2c;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   SOCIETY BUILDING ICON
+========================================================= */
+.society-menu .menu-link>i:first-child {
+	width: 20px;
+	min-width: 20px;
+	text-align: center;
+	font-size: 17px;
+	flex-shrink: 0;
+}
+
+/* =========================================================
+   SOCIETY TEXT
+========================================================= */
+.society-menu .menu-link>span {
+	flex: 1;
+	margin-left: 12px;
+	color: inherit;
+	white-space: nowrap;
+}
+
+/* =========================================================
+   SOCIETY ARROW
+========================================================= */
+.society-menu .submenu-arrow {
+	width: 20px;
+	min-width: 20px;
+	margin-left: auto;
+	text-align: center;
+	font-size: 12px;
+	color: inherit;
+}
+
+/* =========================================================
+   SOCIETY ACTIVE
+========================================================= */
+.society-menu .menu-link.active {
+	background: #6d3eea;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   SUBMENU
+========================================================= */
+.society-menu .submenu {
+	display: none;
+	width: 100%;
+	margin: 2px 0 8px 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+.society-menu .submenu.show {
+	display: block;
+}
+
+/* =========================================================
+   SUBMENU LIST
+========================================================= */
+.society-menu .submenu li {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* =========================================================
+   SUBMENU LINKS
+========================================================= */
+.society-menu .submenu-link {
+	width: 100%;
+	min-height: 38px;
+	padding: 9px 10px 9px 48px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #7f8ea3;
+	background: transparent;
+	border-radius: 6px;
+	text-decoration: none;
+	font-size: 13px;
+	box-sizing: border-box;
+	transition: color 0.2s ease, background 0.2s ease;
+}
+
+.society-menu .submenu-link:hover {
+	background: #101e2c;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   SUBMENU ICON
+========================================================= */
+.society-menu .submenu-link i {
+	width: 18px;
+	min-width: 18px;
+	text-align: center;
+	font-size: 14px;
+}
+
+/* =========================================================
+   SUBMENU ACTIVE
+========================================================= */
+.society-menu .submenu-link.active {
+	background: #111d2a;
+	color: #a78bfa;
+	text-decoration: none;
+}
+
+/* =========================================================
+   USER AREA
+========================================================= */
+.user-area {
+	width: 100%;
+	flex-shrink: 0;
+	margin-top: 12px;
+	background: #07111b;
+	border: 1px solid #1b2b3a;
+	border-radius: 7px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+/* =========================================================
+   USER PROFILE
+========================================================= */
+.user {
+	width: 100%;
+	height: 70px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	box-sizing: border-box;
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+.avatar {
+	width: 40px;
+	min-width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #7138e8, #4320a8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+/* =========================================================
+   USER INFORMATION
+========================================================= */
+.user-info {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+}
+
+.user-name {
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 18px;
+	white-space: nowrap;
+}
+
+.user-role {
+	color: #929ca8;
+	font-size: 11px;
+	margin-top: 2px;
+	line-height: 16px;
+	white-space: nowrap;
+}
+
+/* =========================================================
+   USER ARROW
+========================================================= */
+.user>span {
+	width: 20px;
+	min-width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #64748b;
+	font-size: 13px;
+}
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+.logout {
+	width: 100%;
+	height: 54px;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border-top: 1px solid #1b2b3a;
+	background: transparent;
+	color: #94a3b8;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	box-sizing: border-box;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+
+.logout i {
+	width: 18px;
+	min-width: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+}
+
+.logout:hover {
+	background: rgba(255, 55, 55, 0.05);
+	color: #ff5252;
+}
+
+/* =========================================================
+   COLLAPSED SIDEBAR
+========================================================= */
+.sidebar.collapsed {
+	width: 70px;
+}
+
+/* =========================================================
+   COLLAPSED LOGO
+========================================================= */
+.sidebar.collapsed .logo-area {
+	padding: 0;
+	height: 86px;
+}
+
+.sidebar.collapsed .logo-title {
+	justify-content: center;
+}
+
+.sidebar.collapsed .logo-title span:not(.logo-icon), .sidebar.collapsed .logo-subtitle
+	{
+	display: none;
+}
+
+/* =========================================================
+   COLLAPSED NORMAL MENU
+========================================================= */
+.sidebar.collapsed .menu-item {
+	justify-content: center;
+	padding: 0;
+}
+
+.sidebar.collapsed .menu-left {
+	justify-content: center;
+	gap: 0;
+}
+
+.sidebar.collapsed .menu-item span:not(.menu-icon) {
+	display: none;
+}
+
+/* =========================================================
+   COLLAPSED SOCIETY
+========================================================= */
+.sidebar.collapsed .society-menu .menu-link {
+	justify-content: center;
+	padding: 0;
+}
+
+.sidebar.collapsed .society-menu .menu-link>span {
+	display: none;
+}
+
+.sidebar.collapsed .society-menu .submenu-arrow {
+	display: none;
+}
+
+.sidebar.collapsed .society-menu .submenu {
+	display: none !important;
+}
+
+/* =========================================================
+   COLLAPSED CHAIRMAN
+========================================================= */
+.sidebar.collapsed .chairman-menu .menu-link {
+	justify-content: center;
+	padding: 0;
+}
+
+.sidebar.collapsed .chairman-menu .menu-link>span {
+	display: none;
+}
+
+.sidebar.collapsed .chairman-menu .submenu-arrow {
+	display: none;
+}
+
+.sidebar.collapsed .chairman-menu .submenu {
+	display: none !important;
+}
+
+/* =========================================================
+   COLLAPSED USER
+========================================================= */
+.sidebar.collapsed .user-area {
+	background: transparent;
+	border: none;
+	margin-top: 10px;
+}
+
+.sidebar.collapsed .user {
+	width: 100%;
+	height: auto;
+	padding: 10px 0;
+	justify-content: center;
+	gap: 0;
+}
+
+.sidebar.collapsed .avatar {
+	width: 36px;
+	min-width: 36px;
+	height: 36px;
+}
+
+.sidebar.collapsed .user-info {
+	display: none;
+}
+
+.sidebar.collapsed .user>span {
+	display: none;
+}
+
+.sidebar.collapsed .logout {
+	display: none;
+}
+
+/* =========================================================
+   MAIN POSITION
+========================================================= */
+.main {
+	margin-left: 244px;
+	min-height: 100vh;
+	transition: margin-left 0.3s ease;
+	 background-color: #000;
+
+}
+
+.main.sidebar-collapsed {
+	margin-left: 70px;
+}
+
+/* =========================================================
+   CHAIRMAN MENU
+========================================================= */
+.chairman-menu {
+	width: 100%;
+	margin: 0 0 5px 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+/* =========================================================
+   CHAIRMAN MAIN LINK
+========================================================= */
+.chairman-menu .menu-link {
+	width: 100%;
+	min-height: 46px;
+	padding: 0 14px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	color: #94a3b8;
+	background: transparent;
+	border-radius: 8px;
+	text-decoration: none;
+	font-size: 14px;
+	white-space: nowrap;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease;
+}
+
+.chairman-menu .menu-link:hover {
+	background: #101e2c;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   CHAIRMAN ICON
+========================================================= */
+.chairman-menu .menu-link>i:first-child {
+	width: 20px;
+	min-width: 20px;
+	text-align: center;
+	font-size: 17px;
+	flex-shrink: 0;
+}
+
+/* =========================================================
+   CHAIRMAN TEXT
+========================================================= */
+.chairman-menu .menu-link>span {
+	flex: 1;
+	margin-left: 12px;
+	color: inherit;
+	white-space: nowrap;
+}
+
+/* =========================================================
+   CHAIRMAN ARROW
+========================================================= */
+.chairman-menu .submenu-arrow {
+	width: 20px;
+	min-width: 20px;
+	margin-left: auto;
+	text-align: center;
+	font-size: 12px;
+	color: inherit;
+}
+
+/* =========================================================
+   CHAIRMAN ACTIVE
+========================================================= */
+.chairman-menu .menu-link.active {
+	background: #6d3eea;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   CHAIRMAN SUBMENU
+========================================================= */
+.chairman-menu .submenu {
+	display: none;
+	width: 100%;
+	margin: 2px 0 8px 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+.chairman-menu .submenu.show {
+	display: block;
+}
+
+/* =========================================================
+   CHAIRMAN SUBMENU LI
+========================================================= */
+.chairman-menu .submenu li {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* =========================================================
+   CHAIRMAN SUBMENU LINK
+========================================================= */
+.chairman-menu .submenu-link {
+	width: 100%;
+	min-height: 38px;
+	padding: 9px 10px 9px 48px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #7f8ea3;
+	background: transparent;
+	border-radius: 6px;
+	text-decoration: none;
+	font-size: 13px;
+	box-sizing: border-box;
+	transition: color 0.2s ease, background 0.2s ease;
+}
+
+.chairman-menu .submenu-link:hover {
+	background: #101e2c;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* =========================================================
+   CHAIRMAN SUBMENU ICON
+========================================================= */
+.chairman-menu .submenu-link i {
+	width: 18px;
+	min-width: 18px;
+	text-align: center;
+	font-size: 14px;
+}
+
+/* =========================================================
+   CHAIRMAN SUBMENU ACTIVE
+========================================================= */
+.chairman-menu .submenu-link.active {
+	background: #111d2a;
+	color: #a78bfa;
+	text-decoration: none;
+}
+
+/* =========================================================
+   CHAIRMAN MENU
+   DO NOT CHANGE SOCIETY STYLES
+========================================================= */
+
+.chairman-menu {
+    width: 100%;
+    margin: 0 0 5px 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+/* Chairman main menu */
+.chairman-menu .menu-link {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 14px;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #94a3b8;
+    background: transparent;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 14px;
+
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.chairman-menu .menu-link:hover {
+    background: #101e2c;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Chairman icon */
+.chairman-menu .menu-link > i:first-child {
+    width: 20px;
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+}
+
+/* Chairman text */
+.chairman-menu .menu-link > span {
+    flex: 1;
+
+    margin-left: 12px;
+
+    color: inherit;
+
+    white-space: nowrap;
+}
+
+/* Chairman arrow */
+.chairman-menu .submenu-arrow {
+    width: 20px;
+    min-width: 20px;
+
+    margin-left: auto;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: inherit;
+}
+
+/* Active Chairman */
+.chairman-menu .menu-link.active {
+    background: #6d3eea;
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+/* =========================================================
+   CHAIRMAN SUBMENU
+========================================================= */
+
+.chairman-menu .submenu {
+    display: none;
+
+    width: 100%;
+
+    margin: 2px 0 8px 0;
+    padding: 0;
+
+    list-style: none;
+
+    box-sizing: border-box;
+}
+
+.chairman-menu .submenu.show {
+    display: block;
+}
+
+.chairman-menu .submenu li {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Chairman submenu links */
+.chairman-menu .submenu-link {
+    width: 100%;
+    min-height: 38px;
+
+    padding: 9px 10px 9px 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #7f8ea3;
+    background: transparent;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    box-sizing: border-box;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.chairman-menu .submenu-link:hover {
+    background: #101e2c;
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+/* Submenu icons */
+.chairman-menu .submenu-link i {
+    width: 18px;
+    min-width: 18px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+/* Active submenu */
+.chairman-menu .submenu-link.active {
+    background: #111d2a;
+    color: #a78bfa;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   COLLAPSED SIDEBAR
+========================================================= */
+
+.sidebar.collapsed .chairman-menu .menu-link {
+    justify-content: center;
+    padding: 0;
+}
+
+.sidebar.collapsed .chairman-menu .menu-link > span {
+    display: none;
+}
+
+.sidebar.collapsed .chairman-menu .submenu-arrow {
+    display: none;
+}
+
+.sidebar.collapsed .chairman-menu .submenu {
+    display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .chairman-menu .menu-link {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .chairman-menu .menu-link > span,
+    .chairman-menu .submenu-arrow {
+        display: none;
+    }
+
+    .chairman-menu .submenu {
+        display: none !important;
+    }
+}
+/* =========================================================
+   MOBILE
+========================================================= */
+@media ( max-width : 800px) {
+	.sidebar {
+		width: 70px;
+		padding: 20px 10px;
+	}
+	.logo-area {
+		height: 70px;
+		padding: 0;
+	}
+	.logo-title {
+		justify-content: center;
+	}
+	.logo-title span:not(.logo-icon), .logo-subtitle {
+		display: none;
+	}
+	.menu-item {
+		justify-content: center;
+		padding: 0;
+	}
+	.menu-left {
+		justify-content: center;
+		gap: 0;
+	}
+	.menu-item span:not(.menu-icon) {
+		display: none;
+	}
+	.society-menu .menu-link {
+		justify-content: center;
+		padding: 0;
+	}
+	.society-menu .menu-link>span, .society-menu .submenu-arrow {
+		display: none;
+	}
+	.society-menu .submenu {
+		display: none !important;
+	}
+
+	/* Chairman */
+	.chairman-menu .menu-link {
+		justify-content: center;
+		padding: 0;
+	}
+	.chairman-menu .menu-link>span, .chairman-menu .submenu-arrow {
+		display: none;
+	}
+	.chairman-menu .submenu {
+		display: none !important;
+	}
+	.user-info, .user>span, .logout {
+		display: none;
+	}
+	.user-area {
+		background: transparent;
+		border: none;
+		margin-top: 10px;
+	}
+	.user {
+		justify-content: center;
+		padding: 10px 0;
+	}
+	.main {
+		margin-left: 70px;
+	}
+	.main.sidebar-collapsed {
+		margin-left: 70px;
+	}
+}
